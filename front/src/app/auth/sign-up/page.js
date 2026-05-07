@@ -67,7 +67,7 @@ const SignUp = () => {
 
   return (
     <div className="h-screen w-full flex items-center justify-center">
-      <div className="main-shadow w-md p-5">
+      <div className="main-shadow w-full max-w-md mx-4 p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl">
         <h1 className="text-white text-center text-2xl">Create an account</h1>
         <p className="text-white text-center text-sm my-3">
           Already have an account?{" "}

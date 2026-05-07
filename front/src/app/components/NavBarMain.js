@@ -42,7 +42,7 @@ const NavBarMain = () => {
   ];
 
   return (
-    <div className="mb-6 flex w-full items-center justify-end gap-6 py-4 px-8 bg-white/5 border-b border-white/10 backdrop-blur-md sticky top-0 z-50">
+    <div className="mb-6 flex w-full items-center justify-end max-md:justify-center gap-6 max-md:gap-4 py-4 px-8 max-md:px-4 bg-white/5 border-b border-white/10 backdrop-blur-md sticky top-0 z-50">
       {links.map((link) => (
         <Link
           key={link.href}

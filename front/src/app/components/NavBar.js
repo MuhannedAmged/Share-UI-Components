@@ -53,7 +53,7 @@ const NavBar = () => {
             }`}
           >
             {link.icon}
-            <p>{link.label}</p>
+            <p className="max-md:hidden">{link.label}</p>
           </Link>
         ))}
       </div>

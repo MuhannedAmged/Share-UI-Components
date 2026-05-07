@@ -65,7 +65,7 @@ const UpdateProjects = ({ onClose, onProjectUpdated, project }) => {
         onClick={onClose}
         className="h-screen w-screen fixed top-0 left-0 bg-gray-900/40 z-10"
       ></div>
-      <div className="w-md max-md:w-sm p-5 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-sm bg-gray-900 z-10 text-white">
+      <div className="w-full max-w-xl mx-4 p-8 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-gray-950 border border-white/10 z-10 text-white shadow-2xl">
         <h3 className="text-1xl">Update project</h3>
         <p className="text-sm my-3">
           Modify the project details and save your changes.
