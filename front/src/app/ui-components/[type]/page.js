@@ -15,18 +15,17 @@ const UiComponentsType = () => {
   const [projects, setProjects] = useState([]);
   const [visibleCount, setVisibleCount] = useState(20);
 
-  const fetchProjects = async () => {
-    try {
-      const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/projects/by-type/${type}`
-      );
-      setProjects(res.data.projects || []);
-    } catch (error) {
-      console.error("Failed to fetch projects:", error);
-    }
-  };
-
   useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/projects/by-type/${type}`
+        );
+        setProjects(res.data.projects || []);
+      } catch (error) {
+        console.error("Failed to fetch projects:", error);
+      }
+    };
     fetchProjects();
   }, [type]);
 

@@ -9,6 +9,7 @@ import {
 } from "@/app/api/user";
 import Toast from "@/app/components/Toast";
 import axios from "axios";
+import Image from "next/image";
 import { IconUser, IconMail, IconLock, IconTrash, IconDeviceFloppy, IconLogout, IconCamera } from "@tabler/icons-react";
 
 const Settings = () => {
@@ -142,7 +143,7 @@ const Settings = () => {
               <div className="relative group">
                 <div className="w-32 h-32 rounded-2xl overflow-hidden bg-gray-800 border-2 border-white/10 group-hover:border-sky-500/50 transition-all">
                   {preview ? (
-                    <img src={preview} className="w-full h-full object-cover" alt="Profile" data-optimized="false" />
+                    <Image src={preview} className="w-full h-full object-cover" alt="Profile" width={128} height={128} unoptimized />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-gray-500">
                       <IconUser size={48} />
