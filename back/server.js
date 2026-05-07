@@ -8,7 +8,7 @@ const uri = process.env.MONGODB_URI;
 app.use(express.static("src"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(require("cors")());
+// app.use(require("cors")());
 
 app.use(require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
