@@ -30,7 +30,7 @@ const SignIn = () => {
     };
 
     verifyUser();
-  }, []);
+  }, [router]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,7 +63,7 @@ const SignIn = () => {
       <div className="main-shadow w-full max-w-md mx-4 p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl">
         <h1 className="text-white text-center text-2xl">Welcome back</h1>
         <p className="text-white text-center text-sm my-3">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link className="text-sky-400" href="/auth/sign-up">
             Sign Up
           </Link>

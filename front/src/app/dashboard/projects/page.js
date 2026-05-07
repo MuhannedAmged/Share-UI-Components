@@ -37,20 +37,19 @@ const Projects = () => {
       }
     };
     verifyUser();
-  }, []);
-
-  const loadProjects = async () => {
-    const token = localStorage.getItem("token");
-    if (!token) return;
-    const res = await fetchProjects(token);
-    if (res.success) {
-      setProjects(res.projects);
-    } else {
-      setToast({ show: true, status: "error", text: res.message });
-    }
-  };
+  }, [router]);
 
   useEffect(() => {
+    const loadProjects = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+      const res = await fetchProjects(token);
+      if (res.success) {
+        setProjects(res.projects);
+      } else {
+        setToast({ show: true, status: "error", text: res.message });
+      }
+    };
     loadProjects();
   }, []);
 

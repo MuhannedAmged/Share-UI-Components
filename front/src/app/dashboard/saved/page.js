@@ -27,7 +27,7 @@ const Saved = () => {
       }
     };
     verifyUser();
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     const loadProjects = async () => {

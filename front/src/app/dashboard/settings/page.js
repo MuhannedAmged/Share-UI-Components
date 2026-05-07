@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import SideBar from "@/app/components/SideBar";
 import {
   updateUser,
@@ -26,24 +26,14 @@ const Settings = () => {
     show: false,
   });
 
-  const showToast = (status, text) => {
+  const showToast = useCallback((status, text) => {
     setToast({ status, text, show: true });
     setTimeout(() => {
       setToast((prev) => ({ ...prev, show: false }));
     }, 3000);
-  };
-
-  useEffect(() => {
-    const storedToken = localStorage.getItem("token");
-    if (!storedToken) {
-      window.location.href = "/auth/sign-in";
-      return;
-    }
-    setToken(storedToken);
-    fetchUserData(storedToken);
   }, []);
 
-  const fetchUserData = async (storedToken) => {
+  const fetchUserData = useCallback(async (storedToken) => {
     try {
       const res = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/api/user/profile`,
@@ -64,7 +54,17 @@ const Settings = () => {
       console.error("Fetch error:", err);
       showToast("error", "Failed to load user data");
     }
-  };
+  }, [showToast]);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (!storedToken) {
+      window.location.href = "/auth/sign-in";
+      return;
+    }
+    setToken(storedToken);
+    fetchUserData(storedToken);
+  }, [fetchUserData]);
 
   const handleUpdateField = async (field) => {
     try {
@@ -142,7 +142,7 @@ const Settings = () => {
               <div className="relative group">
                 <div className="w-32 h-32 rounded-2xl overflow-hidden bg-gray-800 border-2 border-white/10 group-hover:border-sky-500/50 transition-all">
                   {preview ? (
-                    <img src={preview} className="w-full h-full object-cover" alt="Profile" />
+                    <img src={preview} className="w-full h-full object-cover" alt="Profile" data-optimized="false" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-gray-500">
                       <IconUser size={48} />

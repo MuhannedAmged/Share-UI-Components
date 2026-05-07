@@ -29,7 +29,7 @@ const SignUp = () => {
     };
 
     verifyUser();
-  }, []);
+  }, [router]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
