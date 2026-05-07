@@ -36,7 +36,7 @@ const NavBarMain = () => {
       ) : (
         <IconLogin2 size={iconSize} stroke={iconStroke} />
       ),
-      href: isLoggedIn ? "/dashboard" : "/auth/sign-up",
+      href: isLoggedIn ? "/dashboard/projects" : "/auth/sign-up",
       label: isLoggedIn ? "Dashboard" : "Sign Up",
     },
   ];
@@ -45,7 +45,7 @@ const NavBarMain = () => {
     <div className="mb-6 flex w-full items-center justify-end max-md:justify-center gap-6 max-md:gap-4 py-4 px-8 max-md:px-4 bg-white/5 border-b border-white/10 backdrop-blur-md sticky top-0 z-50">
       {links.map((link) => (
         <Link
-          key={link.href}
+          key={link.label}
           href={link.href}
           className="text-gray-300 flex gap-2 hover:text-sky-400 duration-300 items-center text-sm font-medium transition-all hover:translate-y-[-1px]"
         >

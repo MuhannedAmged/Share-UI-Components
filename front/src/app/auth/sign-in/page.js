@@ -23,7 +23,7 @@ const SignIn = () => {
       const res = await checkUser(token);
 
       if (res.success) {
-        router.push("/dashboard");
+        router.push("/dashboard/projects");
       } else {
         localStorage.removeItem("token");
       }
@@ -42,7 +42,7 @@ const SignIn = () => {
         setStatusToast("success");
         setTextToast(res.message || "Signed in successfully");
         localStorage.setItem("token", res.token);
-        router.push("/dashboard");
+        router.push("/dashboard/projects");
       } else {
         setStatusToast("error");
         setTextToast(res.message || "Invalid credentials");

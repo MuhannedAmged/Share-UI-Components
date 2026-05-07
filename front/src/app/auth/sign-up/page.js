@@ -22,7 +22,7 @@ const SignUp = () => {
       const res = await checkUser(token);
 
       if (res.success) {
-        router.push("/dashboard");
+        router.push("/dashboard/projects");
       } else {
         localStorage.removeItem("token");
       }

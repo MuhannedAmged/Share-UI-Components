@@ -1,3 +1,4 @@
+"use client";
 import {
   IconSquareDashed,
   IconClick,
@@ -13,6 +14,7 @@ import {
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const iconSize = 20;
 const iconStroke = 1.75;
@@ -67,8 +69,14 @@ const links = [
 
 const ComponentsSidebar = () => {
   const pathName = usePathname();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    setIsLoggedIn(!!localStorage.getItem("token"));
+  }, []);
+
   return (
-    <div className="h-screen w-54 max-md:w-15 max-md:overflow-x-hidden overflow-y-hidden border-1 border-gray-900">
+    <div className="h-screen w-54 max-md:w-15 max-md:overflow-x-hidden overflow-y-hidden border-1 border-gray-900 bg-gray-950">
       <div className="h-full fixed top-0 left-0 text-white p-8 max-md:p-5 !pb-32">
         <div>
           <IconSquareDashed
@@ -95,9 +103,9 @@ const ComponentsSidebar = () => {
           </div>
         </div>
         <div>
-          {localStorage.getItem("token") ? (
+          {isLoggedIn ? (
             <Link
-              href={"/dashboard"}
+              href={"/dashboard/projects"}
               className={`flex gap-1 hover:text-sky-400 duration-300`}
             >
               <IconSquareDashed size={iconSize} stroke={iconStroke} />
